@@ -1,0 +1,68 @@
+{
+  "model_info": {
+    "name": "gpt-5",
+    "provider": "OpenAI",
+    "capabilities": ["reasoning_effort", "verbosity_control", "agentic", "tool_usage"]
+  },
+  "default_parameters": {
+    "model": "gpt-5",
+    "reasoning_effort": "medium",
+    "verbosity": "medium",
+    "max_tokens": 2000,
+    "temperature": 0.7
+  },
+  "task_presets": {
+    "agentic_complex": {
+      "reasoning_effort": "high",
+      "verbosity": "medium",
+      "max_tokens": 4000,
+      "temperature": 0.7,
+      "description": "Para tarefas agênticas complexas que requerem múltiplas etapas"
+    },
+    "code_development": {
+      "reasoning_effort": "high", 
+      "verbosity": "high",
+      "max_tokens": 3000,
+      "temperature": 0.3,
+      "description": "Para desenvolvimento e depuração de código"
+    },
+    "quick_queries": {
+      "reasoning_effort": "minimal",
+      "verbosity": "low", 
+      "max_tokens": 1000,
+      "temperature": 0.5,
+      "description": "Para consultas factuais rápidas"
+    },
+    "comprehensive_research": {
+      "reasoning_effort": "high",
+      "verbosity": "medium",
+      "max_tokens": 4000,
+      "temperature": 0.6,
+      "description": "Para pesquisa abrangente com múltiplas fontes"
+    },
+    "creative_writing": {
+      "reasoning_effort": "medium",
+      "verbosity": "high",
+      "max_tokens": 3500,
+      "temperature": 0.8,
+      "description": "Para escrita criativa e geração de conteúdo"
+    },
+    "technical_analysis": {
+      "reasoning_effort": "high",
+      "verbosity": "high",
+      "max_tokens": 3000,
+      "temperature": 0.4,
+      "description": "Para análise técnica detalhada"
+    }
+  },
+  "reasoning_effort_guidelines": {
+    "high": "Para tarefas complexas multi-etapas, workflows agênticos, geração de código",
+    "medium": "Para tarefas analíticas padrão, codificação moderada",
+    "minimal": "Para consultas rápidas, snippets simples, quando velocidade é prioridade"
+  },
+  "verbosity_guidelines": {
+    "high": "Explicações abrangentes, raciocínio detalhado",
+    "medium": "Equilíbrio entre detalhes e brevidade", 
+    "low": "Respostas concisas, explicações breves"
+  }
+}
