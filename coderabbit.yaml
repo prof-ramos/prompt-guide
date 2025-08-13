@@ -1,0 +1,25 @@
+# https://www.coderabbit.ai/docs/configuration
+language: "pt-br"
+
+# Options: "compact", "default", "review-changes"
+review_file_mode: "review-changes"
+
+# Options: "full", "short"
+description_type: "short"
+
+# Options: "emoji", "letter"
+review_comment_style: "emoji"
+
+# Options: "file", "hunk"
+collapse_review_comment: "hunk"
+
+# Options: true, false
+summarize_release_notes: true
+
+# Path filters to ignore
+path_filters:
+  - "!**/*.json"
+  - "!**/*.yaml"
+  - "!**/*.yml"
+  - "!**/*.md"
+  - "!**/*.txt"
