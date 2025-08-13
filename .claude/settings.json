@@ -1,0 +1,56 @@
+{
+  "language": "pt-br",
+  "locale": "pt-BR",
+  "default_response_language": "portuguese",
+  "region": "Brazil",
+  "date_format": "dd/mm/yyyy",
+  "number_format": "european",
+  "currency": "BRL",
+  "timezone": "America/Sao_Paulo",
+  
+  "custom_instructions": {
+    "always_portuguese": "Sempre responda em português brasileiro, independente do idioma da pergunta",
+    "python_package_manager": "Sempre use 'uv' como gerenciador de pacotes Python em vez de pip",
+    "code_style": "Prefira explicações detalhadas em português para código complexo",
+    "file_naming": "Use nomes de arquivos e variáveis em inglês, mas comentários em português",
+    "error_handling": "Inclua tratamento de erros abrangente em todos os códigos",
+    "documentation": "Gere documentação em português brasileiro para funções e classes"
+  },
+  
+  "development_preferences": {
+    "python": {
+      "package_manager": "uv",
+      "formatter": "ruff format",
+      "linter": "ruff check",
+      "type_checker": "mypy"
+    },
+    "javascript": {
+      "package_manager": "pnpm",
+      "formatter": "prettier",
+      "linter": "eslint"
+    },
+    "frontend": {
+      "framework": "Next.js",
+      "styling": "TailwindCSS",
+      "components": "shadcn/ui",
+      "icons": "Lucide",
+      "state": "Zustand"
+    }
+  },
+  
+  "code_generation_rules": [
+    "Sempre inclua comentários explicativos em português",
+    "Use type hints em Python sempre que possível",
+    "Prefira async/await para operações I/O",
+    "Implemente logging adequado",
+    "Crie testes unitários quando apropriado",
+    "Siga padrões de nomenclatura consistentes"
+  ],
+  
+  "response_style": {
+    "verbosity": "detailed",
+    "include_examples": true,
+    "explain_reasoning": true,
+    "provide_alternatives": true
+  }
+}
