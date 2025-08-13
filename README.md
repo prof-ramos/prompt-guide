@@ -9,6 +9,10 @@ A estrutura foi projetada para ser modular e fácil de navegar:
 ```
 /prompt-guide/
 ├───README.md
+├───manual/
+│   └───coderabbitai-cline/
+│       ├───README.md
+│       └───uso.md
 ├───models/
 │   ├───gpt-5/
 │   │   ├───cursor_rules.md
@@ -24,6 +28,8 @@ A estrutura foi projetada para ser modular e fácil de navegar:
     └───... (arquivos originais)
 ```
 
+- **`manual/`**: Contém documentação detalhada sobre ferramentas e processos.
+- **`manual/coderabbitai-cline/`**: Documentação sobre o CodeRabbitAI e Cline.
 - **`models/`**: Contém todos os arquivos relacionados a modelos de IA específicos.
 - **`models/<nome-do-modelo>/`**: Cada subdiretório é dedicado a um modelo (GPT-5, Grok-4, etc.), centralizando suas configurações.
 - **`archive/`**: Contém os arquivos originais que foram reorganizados.
