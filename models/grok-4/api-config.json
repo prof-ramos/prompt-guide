@@ -1,0 +1,47 @@
+{
+  "model_info": {
+    "name": "grok-4",
+    "provider": "xAI",
+    "capabilities": ["real_time_info", "conversational", "code_understanding", "creative", "reasoning"]
+  },
+  "default_parameters": {
+    "model": "grok-4",
+    "max_tokens": 2000,
+    "temperature": 0.7
+  },
+  "task_presets": {
+    "conversational": {
+      "max_tokens": 2500,
+      "temperature": 0.8,
+      "description": "Para conversas naturais e assistência geral"
+    },
+    "code_analysis": {
+      "max_tokens": 3000,
+      "temperature": 0.4,
+      "description": "Para análise e geração de código"
+    },
+    "creative_tasks": {
+      "max_tokens": 3000,
+      "temperature": 0.9,
+      "description": "Para escrita criativa e tarefas imaginativas"
+    },
+    "current_events": {
+      "max_tokens": 2500,
+      "temperature": 0.6,
+      "description": "Para análise de eventos atuais e tendências"
+    },
+    "problem_solving": {
+      "max_tokens": 3500,
+      "temperature": 0.5,
+      "description": "Para resolução de problemas complexos"
+    }
+  },
+  "best_practices": [
+    "Aproveite o acesso a informações em tempo real",
+    "Use tom conversacional e direto",
+    "Explore capacidades criativas para tarefas imaginativas",
+    "Utilize para análise de tendências atuais",
+    "Mantenha temperatura alta para criatividade",
+    "Use temperatura baixa para tarefas técnicas"
+  ]
+}

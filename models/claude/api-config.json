@@ -1,0 +1,53 @@
+{
+  "model_info": {
+    "name": "claude",
+    "provider": "Anthropic",
+    "variants": ["claude-3-haiku", "claude-3-sonnet", "claude-3-opus", "claude-3.5-sonnet"],
+    "capabilities": ["long_context", "code_interpretation", "tool_usage", "reasoning"]
+  },
+  "default_parameters": {
+    "model": "claude-3-sonnet-20240229",
+    "max_tokens": 2000,
+    "temperature": 0.7
+  },
+  "task_presets": {
+    "code_analysis": {
+      "model": "claude-3.5-sonnet",
+      "max_tokens": 4000,
+      "temperature": 0.3,
+      "description": "Para análise e geração de código"
+    },
+    "creative_writing": {
+      "model": "claude-3-opus",
+      "max_tokens": 3000,
+      "temperature": 0.8,
+      "description": "Para escrita criativa e conteúdo original"
+    },
+    "technical_documentation": {
+      "model": "claude-3.5-sonnet",
+      "max_tokens": 3500,
+      "temperature": 0.4,
+      "description": "Para documentação técnica detalhada"
+    },
+    "quick_tasks": {
+      "model": "claude-3-haiku",
+      "max_tokens": 1500,
+      "temperature": 0.5,
+      "description": "Para tarefas rápidas e simples"
+    },
+    "complex_reasoning": {
+      "model": "claude-3-opus",
+      "max_tokens": 4000,
+      "temperature": 0.6,
+      "description": "Para raciocínio complexo e resolução de problemas"
+    }
+  },
+  "best_practices": [
+    "Use Claude 3.5 Sonnet para código e análise técnica",
+    "Use Claude 3 Opus para tarefas que requerem máxima qualidade",
+    "Use Claude 3 Haiku para respostas rápidas",
+    "Aproveite o contexto longo para documentação extensa",
+    "Use temperature baixa (0.3-0.4) para tarefas técnicas",
+    "Use temperature alta (0.7-0.9) para tarefas criativas"
+  ]
+}
