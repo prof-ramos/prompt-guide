@@ -1,0 +1,4 @@
+title: Configurações
+nav:
+  - Visão Geral: index.md
+  - CodeRabbit: coderabbit.yaml

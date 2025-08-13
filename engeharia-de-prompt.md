@@ -1,4 +1,3 @@
-Claro, aqui está a tradução completa do documento para o português do Brasil (pt-br), mantendo a formatação e o conteúdo técnico.
 
 ***
 
@@ -7,7 +6,6 @@ Claro, aqui está a tradução completa do documento para o português do Brasil
 
 ![Google Logo](https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg)
 ***
-## Agradecimentos
 
 ### Contribuidores de conteúdo
 * Michael Sherman
@@ -42,7 +40,7 @@ Este documento técnico discute a engenharia de prompt em detalhes. Analisaremos
 
 ## Engenharia de Prompt
 
-Lembre-se de como um LLM funciona; é um mecanismo de predição. O modelo recebe texto sequencial como entrada e, em seguida, prevê qual deve ser o próximo token, com base nos dados em que foi treinado. O LLM é operacionalizado para fazer isso repetidamente, adicionando o token previsto anteriormente ao final do texto sequencial para prever o próximo token. A predição do próximo token é baseada na relação entre o que está nos tokens anteriores и o que o LLM viu durante seu treinamento.
+A predição do próximo token é baseada na relação entre o que está nos tokens anteriores e o que o LLM viu durante seu treinamento.
 
 Quando você escreve um prompt, está tentando configurar o LLM para prever a sequência correta de tokens. Engenharia de prompt é o processo de projetar prompts de alta qualidade que guiam os LLMs para produzir saídas precisas. Esse processo envolve experimentar para encontrar o melhor prompt, otimizar o comprimento do prompt e avaliar o estilo de escrita e a estrutura de um prompt em relação à tarefa. No contexto de processamento de linguagem natural e LLMs, um prompt é uma entrada fornecida ao modelo para gerar uma resposta ou predição.
 ***
@@ -50,7 +48,7 @@ Esses prompts podem ser usados para alcançar vários tipos de tarefas de compre
 
 Sinta-se à vontade para consultar os guias de prompting do Google[^2],[^3] com exemplos de prompts simples e eficazes.
 
-Ao fazer engenharia de prompt, você começará escolhendo um modelo. Os prompts podem precisar ser otimizados для o seu modelo específico, independentemente de você usar modelos de linguagem Gemini no Vertex AI, GPT, Claude ou um modelo de código aberto como Gemma ou LLaMA.
+Ao fazer engenharia de prompt, você começará escolhendo um modelo. Os prompts podem precisar ser otimizados para o seu modelo específico, independentemente de você usar modelos de linguagem Gemini no Vertex AI, GPT, Claude ou um modelo de código aberto como Gemma ou LLaMA.
 
 Além do prompt, você também precisará experimentar as várias configurações de um LLM.
 
@@ -93,16 +91,15 @@ A melhor maneira de escolher entre top-K e top-P é experimentar ambos os métod
 
 A escolha entre top-K, top-P, temperatura e o número de tokens a serem gerados depende da aplicação específica e do resultado desejado, e as configurações impactam umas às outras. Também é importante garantir que você entenda como o modelo escolhido combina as diferentes configurações de amostragem.
 
-Se temperatura, top-K e top-P estiverem todos disponíveis (como no Vertex Studio), os tokens que atendem aos critérios de top-K e top-P são candidatos para o próximo token previsto, e então a temperatura é aplicada para amostrar a partir dos tokens que passaram pelos critérios de top-K e top-P. Se apenas top-K ou top-P estiver disponível, o comportamento é o mesmo, mas apenas a configuração de top-K ou P é usada.
+Se temperatura, top-K e top-P estiverem todos disponíveis (como no Vertex AI Studio), os tokens que atendem aos critérios de top-K e top-P são candidatos para o próximo token previsto, e então a temperatura é aplicada para amostrar a partir dos tokens que passaram pelos critérios de top-K e top-P. Se apenas top-K ou top-P estiver disponível, o comportamento é o mesmo, mas apenas a configuração de top-K ou P é usada.
 
 Se a temperatura não estiver disponível, quaisquer tokens que atendam aos critérios de top-K e/ou top-P são então selecionados aleatoriamente para produzir um único próximo token previsto.
 
 Em configurações extremas de um valor de configuração de amostragem, essa configuração de amostragem cancela outras configurações ou se torna irrelevante.
 *   Se você definir a temperatura como 0, top-K e top-P se tornam irrelevantes – o token mais provável se torna o próximo token previsto. Se você definir a temperatura extremamente alta (acima de 1 – geralmente na casa das dezenas), a temperatura se torna irrelevante e quaisquer tokens que passem pelos critérios de top-K e/ou top-P são então amostrados aleatoriamente para escolher um próximo token previsto.
 *   Se você definir top-K como 1, a temperatura e o top-P se tornam irrelevantes. Apenas um token passa pelo critério top-K, e esse token é o próximo token previsto. Se você definir o top-K extremamente alto, como o tamanho do vocabulário do LLM, qualquer token com uma probabilidade não nula de ser o próximo token atenderá ao critério top-K e nenhum será selecionado.
-*   Se você definir top-P como 0 (ou um valor muito pequeno), a maioria das implementações de amostragem de LLM considerará apenas o token mais provável para atender ao critério top-P, tornando a temperatura e o top-K irrelevantes. Se você definir top-P como 1, qualquer token com uma probabilidade não nula de ser o próximo token atenderá ao critério top-P, e nenhum será selecionado.
-
-Como ponto de partida geral, uma temperatura de 0.2, top-P de 0.95 e top-K de 30 lhe dará resultados relativamente coerentes que podem ser criativos, mas não excessivamente. Se você quiser resultados especialmente criativos, tente começar com uma temperatura de 0.9, top-P de 0.99 e top-K de 40. E se você quiser resultados menos criativos, tente começar com uma temperatura de 0.1, top-P de 0.9 e top-K de 20. Finalmente, se sua tarefa sempre tiver uma única resposta correta (por exemplo, resolver um problema de matemática), comece com uma temperatura de 0.
+*   Se você definir top-K como 1, a temperatura e o top-P se tornam irrelevantes. Apenas um token passa pelo critério top-K, e esse token é o próximo token previsto. Se você definir o top-K extremamente alto, como o tamanho do vocabulário do LLM, o filtro de top-K deixa de restringir efetivamente a seleção (torna-se irrelevante).
+*   Se você definir top-P como 0 (ou um valor muito pequeno), apenas o token mais provável atende ao critério top-P, tornando a temperatura e o top-K irrelevantes. Se você definir top-P como 1, o filtro de top-P deixa de restringir a seleção (torna-se irrelevante).
 
 **NOTA:** Com mais liberdade (temperatura, top-K, top-P e tokens de saída mais altos), o LLM pode gerar texto menos relevante.
 
@@ -382,8 +379,7 @@ O prompting de Raciocinar e agir (*Reason and act* - ReAct)[^10][^13] é um para
 O ReAct imita como os humanos operam no mundo real, pois raciocinamos verbalmente e podemos tomar ações para obter informações. O ReAct tem um bom desempenho em comparação com outras abordagens de engenharia de prompt em uma variedade de domínios.
 
 O prompting ReAct funciona combinando raciocínio e ação em um loop de pensamento-ação. O LLM primeiro raciocina sobre o problema e gera um plano de ação. Em seguida, ele executa as ações do plano e observa os resultados. O LLM então usa as observações para atualizar seu raciocínio и gerar um novo plano de ação. Esse processo continua até que o LLM chegue a uma solução para o problema.
-
-Para ver isso em ação, você precisa escrever algum código. No Trecho de Código 1, estou usando o framework LangChain para Python, junto com o VertexAI (google-cloud-aiplatform) e os pacotes pip `google-search-results`.
+O prompting ReAct funciona combinando raciocínio e ação em um loop de pensamento-ação. O LLM primeiro raciocina sobre o problema e gera um plano de ação. Em seguida, ele executa as ações do plano e observa os resultados. O LLM então usa as observações para atualizar seu raciocínio e gerar um novo plano de ação. Esse processo continua até que o LLM chegue a uma solução para o problema.
 
 Para executar esta amostra, você deve criar uma chave de API SerpAPI (gratuita) em https://serpapi.com/manage-api-key e definir uma variável de ambiente `SERPAPI_API_KEY`.
 
@@ -482,9 +478,7 @@ O momento que todos esperávamos, será que realmente funciona?
 
 Vamos testá-lo primeiro com uma pasta de teste com apenas alguns arquivos, que precisarão ser renomeados de `nome_arquivo.txt` para `rascunho_nome_arquivo.txt`.
 
-1.  Copie a saída da Tabela 16 (sem o invólucro de texto ```bash), e cole em um novo arquivo chamado: "renomear_arquivos.sh".
-2.  Abra uma janela de terminal e digite: `. renomear_arquivos.sh`. Ele pedirá para você digitar um nome de pasta, por exemplo, `teste`, e pressione enter.
-3.  O script parece rodar bem. Você verá a mensagem: `Arquivos renomeados com sucesso`. Quando você olhar na pasta de teste, notará que todos os arquivos foram perfeitamente renomeados para `rascunho_nome_arquivo.txt`.
+1.  Copie a saída da Tabela 16 (sem o invólucro de texto
 
 Funcionou!
 
@@ -664,6 +658,19 @@ Para reutilizar prompts e torná-los mais dinâmicos, use variáveis no prompt, 
 | **Prompt** | VARIÁVEIS<br>{cidade} = "Amsterdã"<br><br>PROMPT<br>Você é um guia de viagens. Diga-me um fato sobre a cidade: {cidade} |
 | **Saída** | Amsterdã é uma bela cidade cheia de canais, pontes e ruas estreitas. É um ótimo lugar para visitar por sua rica história, cultura e vida noturna. |
 
+### Combine e Itere sobre Prompts
+
+Para análises específicas, uma técnica poderosa é combinar diferentes abordagens de prompt. Comece com um "núcleo" de prompt que define a tarefa principal e, em seguida, adicione ou remova frases para refinar o pedido. Por exemplo, você pode adicionar "Liste os resultados em ordem cronológica" ou "Seja conciso na sua resposta".
+
+Quando a estrutura da resposta é crucial, considere usar formatos como XML. Isso ajuda o modelo a entender a organização dos dados e a gerar saídas mais consistentes, especialmente para tarefas complexas de extração ou classificação.
+
+```xml
+<analise_sentimento>
+  <texto>O filme foi incrível, superou minhas expectativas!</texto>
+  <instrucao>Classifique o sentimento como POSITIVO, NEGATIVO ou NEUTRO.</instrucao>
+</analise_sentimento>
+```
+
 ### Experimente com formatos de entrada e estilos de escrita
 
 Diferentes modelos, configurações de modelo, formatos de prompt, escolhas de palavras e envios podem produzir resultados diferentes. Portanto, é importante experimentar com atributos do prompt como o estilo, a escolha de palavras e o tipo de prompt (zero-shot, few-shot, prompt de sistema).
@@ -699,7 +706,7 @@ Em resumo, os benefícios de usar JSON para sua saída:
 *   Você obtém tipos de dados
 *   Você pode ordená-lo
 
-A Tabela 4 na seção de prompting *few-shot* mostra um exemplo de como retornar uma saída estruturada.
+A Tabela 4 na seção de prompting de sistema mostra um exemplo de como retornar uma saída estruturada.
 
 ### Reparo de JSON
 

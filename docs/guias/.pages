@@ -1,0 +1,4 @@
+title: Guias Práticos
+nav:
+  - Visão Geral: index.md
+  - CodeRabbit + Cline: coderabbitai-cline/

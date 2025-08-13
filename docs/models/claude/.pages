@@ -1,0 +1,6 @@
+title: Claude
+nav:
+  - Visão Geral: index.md
+  - Snippets Raycast: snippets.md
+  - Configurações API: api-config.md
+  - Integrações: integracoes.md

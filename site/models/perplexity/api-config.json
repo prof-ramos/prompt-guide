@@ -1,0 +1,65 @@
+{
+  "model_info": {
+    "name": "perplexity",
+    "provider": "Perplexity AI",
+    "variants": ["perplexity-pro", "perplexity-sonar", "claude-on-perplexity"],
+    "capabilities": ["real_time_search", "source_citation", "research", "fact_checking", "synthesis"]
+  },
+  "default_parameters": {
+    "model": "perplexity-pro",
+    "max_tokens": 2000,
+    "temperature": 0.6,
+    "search_enabled": true
+  },
+  "task_presets": {
+    "academic_research": {
+      "model": "perplexity-pro",
+      "max_tokens": 4000,
+      "temperature": 0.4,
+      "search_enabled": true,
+      "description": "Para pesquisa acadêmica com citações"
+    },
+    "current_events": {
+      "model": "perplexity-sonar",
+      "max_tokens": 2500,
+      "temperature": 0.5,
+      "search_enabled": true,
+      "description": "Para análise de eventos atuais"
+    },
+    "fact_checking": {
+      "model": "perplexity-pro",
+      "max_tokens": 2000,
+      "temperature": 0.3,
+      "search_enabled": true,
+      "description": "Para verificação de fatos"
+    },
+    "research_synthesis": {
+      "model": "claude-on-perplexity",
+      "max_tokens": 3500,
+      "temperature": 0.5,
+      "search_enabled": true,
+      "description": "Para síntese de pesquisas complexas"
+    },
+    "trend_analysis": {
+      "model": "perplexity-sonar",
+      "max_tokens": 3000,
+      "temperature": 0.6,
+      "search_enabled": true,
+      "description": "Para análise de tendências"
+    }
+  },
+  "search_strategies": {
+    "academic": "Foque em fontes acadêmicas, journals e publicações científicas",
+    "news": "Priorize fontes de notícias confiáveis e atuais",
+    "comprehensive": "Use múltiplas fontes para visão abrangente",
+    "fact_check": "Cross-reference com múltiplas fontes confiáveis"
+  },
+  "best_practices": [
+    "Sempre ative a busca para informações atuais",
+    "Use temperature baixa para pesquisa factual",
+    "Aproveite as citações de fontes automáticas",
+    "Combine múltiplas fontes para análise completa",
+    "Use Perplexity Sonar para eventos muito recentes",
+    "Use Claude on Perplexity para análises complexas"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "model_info": {
+    "name": "gemini",
+    "provider": "Google",
+    "variants": ["gemini-1.5-pro", "gemini-1.5-flash", "gemini-2.0-flash"],
+    "capabilities": ["multimodal", "long_context", "code_execution", "tool_usage", "reasoning"]
+  },
+  "default_parameters": {
+    "model": "gemini-1.5-pro",
+    "esforco_de_raciocinio": "médio",
+    "verbosidade": "média",
+    "max_tokens": 2000,
+    "temperature": 0.7
+  },
+  "task_presets": {
+    "agentic_complex": {
+      "model": "gemini-1.5-pro",
+      "esforco_de_raciocinio": "alto",
+      "verbosidade": "média", 
+      "max_tokens": 4000,
+      "temperature": 0.7,
+      "description": "Para tarefas agênticas complexas"
+    },
+    "code_development": {
+      "model": "gemini-1.5-pro",
+      "esforco_de_raciocinio": "alto",
+      "verbosidade": "alta",
+      "max_tokens": 3000,
+      "temperature": 0.3,
+      "description": "Para desenvolvimento de código"
+    },
+    "quick_queries": {
+      "model": "gemini-1.5-flash",
+      "esforco_de_raciocinio": "mínimo",
+      "verbosidade": "baixa",
+      "max_tokens": 1000,
+      "temperature": 0.5,
+      "description": "Para consultas rápidas"
+    },
+    "research_comprehensive": {
+      "model": "gemini-1.5-pro",
+      "esforco_de_raciocinio": "alto",
+      "verbosidade": "média",
+      "max_tokens": 4000,
+      "temperature": 0.6,
+      "description": "Para pesquisa abrangente"
+    },
+    "multimodal_analysis": {
+      "model": "gemini-1.5-pro",
+      "esforco_de_raciocinio": "alto",
+      "verbosidade": "alta",
+      "max_tokens": 3500,
+      "temperature": 0.4,
+      "description": "Para análise multimodal (texto + imagem)"
+    }
+  },
+  "reasoning_effort_levels": {
+    "alto": "Para tarefas complexas multi-etapas, workflows agênticos, geração de código, pesquisa com múltiplas fontes",
+    "médio": "Para tarefas analíticas padrão, codificação de complexidade moderada",
+    "mínimo": "Para consultas factuais rápidas, snippets de código simples, quando velocidade é prioridade"
+  },
+  "verbosity_levels": {
+    "alta": "Explicações abrangentes, raciocínio detalhado",
+    "média": "Equilíbrio entre detalhes e brevidade",
+    "baixa": "Respostas concisas, explicações breves"
+  },
+  "best_practices": [
+    "Use Gemini 1.5 Pro para tarefas complexas e contexto longo",
+    "Use Gemini 1.5 Flash para respostas rápidas",
+    "Aproveite capacidades multimodais para análise de imagens",
+    "Use esforço de raciocínio alto para tarefas agênticas",
+    "Estruture prompts em XML para melhor controle"
+  ]
+}

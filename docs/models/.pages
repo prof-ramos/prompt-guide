@@ -1,0 +1,8 @@
+title: Modelos de IA
+nav:
+  - Visão Geral: index.md
+  - Claude: claude/
+  - Gemini: gemini/
+  - GPT-5: gpt-5/
+  - Grok-4: grok-4/
+  - Perplexity: perplexity/
